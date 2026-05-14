@@ -13,8 +13,11 @@ O objetivo do projeto **Viajei** é, compartilhar das experiências que vivemos,
 
 O Viajei será uma plataforma em que usuários poderão, individualmente, compartilhar suas experiências, e também, recomendar outras tantas para pessoas que acessarem essa plataforma.
 
-> ![IMPORTANT]
-> A plataforma não suporta múltiplos usuários. Isto não é uma rede social virtual. Para compartilhar suas peripécias, por favor, compartilhe o link da sua história.
+> [!IMPORTANT]
+> A plataforma não suporta múltiplos usuários. 
+> Isto não é uma rede social virtual. 
+> Para compartilhar suas peripécias, 
+> por favor, compartilhe o link da sua história.
 
 
 
