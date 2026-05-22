@@ -43,7 +43,37 @@ body {
     font-size: 20pt;
 }
 
-@media (max-width: 600px) {
+main h1 {
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    font-size: 48pt;
+    color: #5e594e;
+    text-decoration: underline;
+}
+
+main {
+    margin: 10% 0 0 10%;
+}
+
+main p {
+    /* font-style: italic; */
+    font-family: 'Georgia', serif;
+    font-size: 20pt;
+    color: #5e594e;
+}
+
+
+main a {
+    color: #4a4538;          /* Muted, dark ink-brown */
+    text-decoration: none;   /* Remove harsh default underline */
+    border-bottom: 1px solid #c9bda5; /* Subtle, paper-colored underline */
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
+    font-family: 'Georgia', serif;
+    font-size: 20pt;
+}
+
+@media (max-width: 600px)  /*Media query para ajustar o cabeçalho em aparelhos móveis */{
     header nav img {
         max-height: 80px;
         
@@ -78,7 +108,7 @@ body {
 
     #container nav a:nth-of-type(1) { top: 100px; }
     #container nav a:nth-of-type(2) { top: 160px; }
-    #container nav a:nth-of-type(3) { top: 220px; }
+    #container nav a:nth-of-type(3) { top: 220px;}
 
     #container nav.active .toggle {
         display: block;
@@ -89,7 +119,7 @@ body {
     #container nav.active a {
         display: block;
         background-color: #f4ecd8;
-        height: 80px;
+        height: 60px;
         width: 100%;
         margin: 0;
         border-top: 1px solid #c9bda5;
@@ -97,10 +127,33 @@ body {
         
         
     }
-    #container nav.active a:nth-of-type(1) { bottom: 100px; }
-    #container nav.active a:nth-of-type(2) { bottom: 160px; }
-    #container nav.active a:nth-of-type(3) { bottom: 220px; }
-
+    #container nav.active a:nth-of-type(1) {
+        bottom: 100px;
+    }
     
+    #container nav.active a:nth-of-type(2) {
+        bottom: 160px;
+    }
+    
+    #container nav.active a:nth-of-type(3) {
+        bottom: 220px;
+        border-bottom: 2px solid #5e594e;   
+    }
+
+   /*
+     Comentário sobre implementação:
+
+     Eu tive que usar algumas outras técnicas para fazer isso que não vimos
+     com profundidade em aula, por isso, devo avisar que prossigam com cautela
+     e que tentem entender o que está acontecendo.
+
+     Sugiro usem a documentação presente na MDN para entender as propriedades
+     de cada elemento
+
+     Podem copiar o Javascript presente aqui, mas certifiquem-se que os caminhos
+     do arquivo estão corretos;
+
+   */
     
 }
+
