@@ -92,13 +92,11 @@ def ordenar_pontos(pontos: list):
 
 # Exercício 15
 valores = [12, 5, 8, 22, 9, 15]
-
 def soma_extremos(valores: list):
     return valores[0] + valores[-1]
 
 # Exercício 16
 ingredientes = ['ovo', 'farinha', 'açúcar', 'leite']
-
 def tem_chocolate(ingredientes:list):
     if 'chocolate' in ingredientes:
         return True
@@ -130,9 +128,14 @@ def remover_brinquedo_seguro(brinquedos:list, item:str):
 # Exercício 20
 numeros_para_trocar = [1,2,3,4]
 def trocar_extremos(numeros_para_trocar: list):
-    numero_comeco = numeros_para_trocar[0]
-    numeros_para_trocar[0] = numeros_para_trocar[-1]
-    numeros_para_trocar[-1] = numero_comeco
+
+    numeros_para_trocar[0], numeros_para_trocar[-1] =  numeros_para_trocar[-1], numeros_para_trocar[0]
+    
+    # ou
+    
+    # numero_comeco = numeros_para_trocar[0]
+    # numeros_para_trocar[0] = numeros_para_trocar[-1]
+    # numeros_para_trocar[-1] = numero_comeco
 
     return numeros_para_trocar
     
