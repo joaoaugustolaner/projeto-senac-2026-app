@@ -48,3 +48,9 @@ def aprovar_saque(saldo:float, valor_saque:float):
     if valor_saque <= saldo and valor_saque % 10 == 0:
         return True
     return False
+
+def verifica_membro_do_clube(nome:str, idade:int) -> str:
+    if nome != "João" and idade < 28:
+        return "Você não é membro do clube"
+    
+    return "Bem vindo ao clube!"

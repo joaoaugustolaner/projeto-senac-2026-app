@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios de Python - Listas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        .exercise-card {
+            background: #fafafa;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .exercise-card.facil { border-left-color: #2ecc71; }
+        .exercise-card.medio { border-left-color: #f1c40f; }
+        .exercise-card.dificil { border-left-color: #e74c3c; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .badge.facil { background-color: #2ecc71; }
+        .badge.medio { background-color: #f1c40f; color: #333; }
+        .badge.dificil { background-color: #e74c3c; }
+
+        h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.4em;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        code {
+            background-color: #eceff1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Exercícios: Listas e Métodos em Python</h1>
+
+        <div class="exercise-card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>1. Acessando o primeiro elemento</h2>
+            <p><strong>Contexto:</strong> Dada a lista de frutas: `frutas = ['maçã', 'banana', 'laranja', 'morango']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `primeira_fruta(frutas)` que receba essa lista e retorne apenas o primeiro elemento dela.</p>
+        </div>
+    
+        <div class="exercise-card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>2. Acessando o último elemento</h2>
+            <p><strong>Contexto:</strong> Dada a lista de animais: `animais = ['gato', 'cachorro', 'passarinho', 'coelho']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `ultimo_animal(animais)` que receba a lista e retorne o último animal usando um índice negativo.</p>
+        </div>
+    
+        <div class="exercise-card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>3. Adicionando itens com append()</h2>
+            <p><strong>Contexto:</strong> Você tem uma lista de compras inicialmente vazia: `compras = []`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `adicionar_compras(compras)` que adicione os elementos `'arroz'`, `'feijão'` e `'batata'` à lista usando o método `.append()`. A função deve retornar a lista atualizada.</p>
+        </div>
+    
+        <div class="exercise-card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>4. Tamanho da lista</h2>
+            <p><strong>Contexto:</strong> Dada a lista de notas de um aluno: `notas = [7.5, 8.0, 6.0, 9.5, 10.0]`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `quantidade_notas(notas)` que use a função `len()` para descobrir quantas notas existem na lista e retorne esse valor.</p>
+        </div>
+    
+        <div class="exercise-card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>5. Substituindo elementos</h2>
+            <p><strong>Contexto:</strong> Dada a lista de cores: `cores = ['vermelho', 'verde', 'azul']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `mudar_cor(cores)` que altere a cor `'verde'` para `'amarelo'` alterando o elemento diretamente pelo seu índice. Retorne a lista modificada.</p>
+        </div>
+    
+        <div class="exercise-card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>6. Limpando a lista com clear()</h2>
+            <p><strong>Contexto:</strong> Dada a lista de tarefas antigas: `tarefas = ['estudar', 'limpar quarto', 'lavar louça']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `esvaziar_tarefas(tarefas)` que use o método `.clear()` para apagar todos os itens da lista e retorne a lista vazia.</p>
+        </div>
+    
+        <div class="exercise-card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>7. Contando ocorrências com count()</h2>
+            <p><strong>Contexto:</strong> Dada a lista de respostas de um quiz: `respostas = ['Sim', 'Não', 'Sim', 'Sim', 'Não', 'Sim']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `contar_sim(respostas)` que utilize o método `.count()` para contar quantas vezes a palavra `'Sim'` aparece na lista e retorne essa contagem.</p>
+        </div>
+    
+        <div class="exercise-card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>8. Removendo o último elemento com pop()</h2>
+            <p><strong>Contexto:</strong> Dada a lista de participantes de uma fila: `fila = ['Ana', 'Bruno', 'Carlos', 'Diego']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `remover_ultimo(fila)` que remova o último elemento da lista usando o método `.pop()`. A função deve retornar o nome da pessoa removida.</p>
+        </div>
+    
+        <div class="exercise-card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>9. Descobrindo a posição com index()</h2>
+            <p><strong>Contexto:</strong> Dada a lista de canais de TV: `canais = ['Globo', 'SBT', 'Record', 'Band']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `posicao_sbt(canais)` que use o método `.index()` para encontrar em qual índice (posição) a palavra `'SBT'` está localizada e retorne esse índice.</p>
+        </div>
+    
+        <div class="exercise-card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>10. Inserindo em uma posição específica com insert()</h2>
+            <p><strong>Contexto:</strong> Dada a lista de dias da semana: `dias = ['Segunda', 'Quarta', 'Quinta']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `ajustar_terca(dias)` que insira o elemento `'Terça'` exatamente no índice 1 (entre Segunda e Quarta) usando o método `.insert()`. Retorne a lista modificada.</p>
+        </div>
+    
+        <div class="exercise-card medio">
+            <span class="badge medio">Médio</span>
+            <h2>11. Fatiando a lista (Slicing básico)</h2>
+            <p><strong>Contexto:</strong> Dada a lista de números: `numeros = [10, 20, 30, 40, 50, 60]`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `tres_primeiros(numeros)` que use o operador de fatiamento (`[:]`) para retornar apenas os três primeiros números da lista.</p>
+        </div>
+    
+        <div class="exercise-card medio">
+            <span class="badge medio">Médio</span>
+            <h2>12. Removendo um elemento específico com remove()</h2>
+            <p><strong>Contexto:</strong> Dada a lista de convidados: `convidados = ['Alice', 'Bob', 'Arthur', 'Carol']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `remover_arthur(convidados)` que remova o nome `'Arthur'` da lista usando o método `.remove()`. Atenção: se o nome não estiver na lista, a função deve retornar a mensagem `'Nome não encontrado'`, caso contrário, retorna a lista atualizada.</p>
+        </div>
+    
+        <div class="exercise-card medio">
+            <span class="badge medio">Médio</span>
+            <h2>13. Invertendo a ordem com reverse()</h2>
+            <p><strong>Contexto:</strong> Dada a lista de letras: `letras = ['A', 'B', 'C', 'D', 'E']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `inverter_lista(letras)` que utilize o método `.reverse()` para inverter a ordem dos elementos da lista e a retorne modificada.</p>
+        </div>
+    
+        <div class="exercise-card medio">
+            <span class="badge medio">Médio</span>
+            <h2>14. Ordenando números com sort()</h2>
+            <p><strong>Contexto:</strong> Dada a lista de pontuações desordenadas: `pontos = [45, 12, 89, 5, 23]`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `ordenar_pontos(pontos)` que ordene essa lista de forma crescente (do menor para o maior) usando o método `.sort()` e retorne a lista ordenada.</p>
+        </div>
+    
+        <div class="exercise-card medio">
+            <span class="badge medio">Médio</span>
+            <h2>15. Somando extremos da lista</h2>
+            <p><strong>Contexto:</strong> Dada uma lista com números inteiros: `valores = [12, 5, 8, 22, 9, 15]`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `soma_extremos(valores)` que pegue o primeiro e o último elemento da lista, some os dois e retorne o resultado dessa soma.</p>
+        </div>
+    
+        <div class="exercise-card medio">
+            <span class="badge medio">Médio</span>
+            <h2>16. Verificando existência</h2>
+            <p><strong>Contexto:</strong> Dada a lista de ingredientes da receita: `ingredientes = ['ovo', 'farinha', 'açúcar', 'leite']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `tem_chocolate(ingredientes)` que verifique se o ingrediente `'chocolate'` está dentro da lista (dica: use o operador `in` com condicionais). Se estiver, retorne `True`; se não, retorne `False`.</p>
+        </div>
+    
+        <div class="exercise-card medio">
+            <span class="badge medio">Médio</span>
+            <h2>17. Juntando duas listas com extend()</h2>
+            <p><strong>Contexto:</strong> Você tem duas listas de amigos: `amigos_escola = ['Pedro', 'Lucas']` e `amigos_bairro = ['Mariana', 'Julia']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `juntar_amigos(amigos_escola, amigos_bairro)` que use o método `.extend()` para colocar todos os amigos do bairro dentro da lista de amigos da escola. Retorne a lista de amigos da escola atualizada.</p>
+        </div>
+    
+        <div class="exercise-card medio">
+            <span class="badge medio">Médio</span>
+            <h2>18. Fatiamento final (Slicing final)</h2>
+            <p><strong>Contexto:</strong> Dada a lista de anos: `anos = [2018, 2019, 2020, 2021, 2022, 2023, 2024]`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `ultimos_tres(anos)` que use fatiamento (`[:]`) com índices negativos para retornar apenas os 3 últimos anos da lista.</p>
+        </div>
+    
+        <div class="exercise-card dificil">
+            <span class="badge dificil">Difícil</span>
+            <h2>19. Remoção Segura com Condicional</h2>
+            <p><strong>Contexto:</strong> Dada uma lista de brinquedos: `brinquedos = ['carrinho', 'boneca', 'bola', 'pião']`</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `remover_brinquedo_seguro(brinquedos, item)` que recebe a lista e o nome de um brinquedo para remover. Se o brinquedo estiver na lista, remova-o usando `.remove()` e retorne a lista modificada. Se não estiver, não mude nada e retorne a string `'Este brinquedo não está na lista!'`.</p>
+        </div>
+    
+        <div class="exercise-card dificil">
+            <span class="badge dificil">Difícil</span>
+            <h2>20. Substituição Dinâmica de Extremos</h2>
+            <p><strong>Contexto:</strong> Dada uma lista qualquer de números ou strings contendo pelo menos 2 elementos.</p>
+            <p><strong>Enunciado:</strong> Crie uma função chamada `trocar_extremos(lista)` que inverta de lugar o primeiro e o último elemento dessa lista entre si. Por exemplo, se a lista for `[1, 2, 3, 4]`, ela deve se transformar em `[4, 2, 3, 1]`. Você deve alterar a própria lista usando atribuição por índices e retornar a lista modificada.</p>
+        </div>
+    
+    </div>
+</body>
+</html>
