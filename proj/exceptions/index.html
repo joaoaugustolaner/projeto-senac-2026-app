@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios Python: Tratamento de Exceções</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #f7fafc;
+            color: #2d3748;
+            padding: 30px 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        h1 {
+            color: #1a365d;
+            text-align: center;
+            border-bottom: 3px solid #e2e8f0;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        p.intro {
+            font-size: 1.1em;
+            color: #4a5568;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .card {
+            padding: 22px;
+            margin: 25px 0;
+            border-radius: 8px;
+            border-left: 6px solid #cbd5e0;
+            background: #fdfdfd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        /* Cores por Nível */
+        .card.super-facil { border-left-color: #48bb78; }
+        .card.facil { border-left-color: #4299e1; }
+        .card.medio { border-left-color: #ed8936; }
+        .card.hard { border-left-color: #e53e3e; }
+        
+        /* Card Especial do Desafio */
+        .card.desafio-especial {
+            border: 2px solid #805ad5;
+            border-left: 8px solid #805ad5;
+            background: #faf5ff;
+            background-image: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 0.75em;
+            font-weight: bold;
+            border-radius: 4px;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .badge.super-facil { background: #48bb78; }
+        .badge.facil { background: #4299e1; }
+        .badge.medio { background: #ed8936; }
+        .badge.hard { background: #e53e3e; }
+        .badge.desafio-especial { background: #805ad5; animation: pulse 2s infinite; }
+
+        h2 {
+            margin-top: 0;
+            font-size: 1.3em;
+            color: #2d3748;
+        }
+        .card.desafio-especial h2 {
+            color: #6b46c1;
+        }
+        p.enunciado {
+            line-height: 1.6;
+            font-size: 1.05em;
+        }
+        code {
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: #c53030;
+        }
+        .card.desafio-especial code {
+            background: #e9d8fd;
+            color: #553c9a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Exercícios: Erros e Exceções em Python</h1>
+        <p class="intro">
+            Esta lista foi projetada para consolidar os conhecimentos acumulados de lógica, coleções e orientação a objetos, 
+            integrando-os com técnicas robustas de tratamento de erros (<code>try/except</code>) e criação de exceções customizadas.
+        </p>
+
+        <div class="card super-facil">
+            <span class="badge super-facil">Super Fácil</span>
+            <h2>1. Protegendo a Divisão por Zero</h2>
+            <p class="enunciado">Crie a função <code>dividir_numeros(a, b)</code>. Ela deve tentar realizar a divisão de <code>a</code> por <code>b</code>. Caso o usuário tente passar o valor zero no segundo parâmetro, capture o erro de divisão por zero nativo do Python e retorne a mensagem textual: <em>"Erro: Não é possível dividir por zero."</em></p>
+        </div>
+
+        <div class="card super-facil">
+            <span class="badge super-facil">Super Fácil</span>
+            <h2>2. Conversão Segura de Tipos</h2>
+            <p class="enunciado">Crie a função <code>converter_para_inteiro(texto)</code>. A lógica deve tentar converter a string recebida em um número inteiro e retornar esse número. Se a string contiver letras ou caracteres inválidos para conversão, capture o erro de valor e retorne textualmente: <em>"Conversão inválida."</em></p>
+        </div>
+
+        <div class="card super-facil">
+            <span class="badge super-facil">Super Fácil</span>
+            <h2>3. Minha Primeira Exceção Customizada</h2>
+            <p class="enunciado">Crie uma classe de erro customizada chamada <code>ErroDeEntradaInvalida</code> que herda da classe base de exceções do Python. Não adicione lógica interna nela (use apenas a palavra-chave de omissão).</p>
+        </div>
+
+        <div class="card super-facil">
+            <span class="badge super-facil">Super Fácil</span>
+            <h2>4. Disparando Erros Manuais</h2>
+            <p class="enunciado">Crie a função <code>verificar_sinal(numero)</code>. Se o número recebido for menor do que zero, use a palavra-chave adequada para disparar a exceção nativa <code>ValueError</code> com o texto explicativo: <em>"O número não pode ser negativo."</em></p>
+        </div>
+
+        <div class="card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>5. Acessando Índices de Listas com Segurança</h2>
+            <p class="enunciado">Crie a função <code>obter_elemento(lista, indice)</code>. Ela deve tentar acessar e retornar o valor localizado no índice informado. Se o índice não existir dentro da lista, capture a exceção de índice fora do limite e retorne a mensagem: <em>"Posição inexistente."</em></p>
+        </div>
+
+        <div class="card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>6. Condicionais Combinadas com Exceções</h2>
+            <p class="enunciado">Crie a função <code>validar_usuario(nome)</code>. Se o nome recebido for uma string vazia ou conter menos de 3 caracteres, force o disparo de um <code>ValueError</code>. Caso contrário, retorne textualmente: <em>"Usuário válido."</em></p>
+        </div>
+
+        <div class="card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>7. Capturando Múltiplos Erros Individuais</h2>
+            <p class="enunciado">Crie a função <code>processar_dados(lista, indice)</code>. O código deve tentar pegar o elemento da lista naquela posição e dividi-lo por 2. Monte um bloco que capture especificamente o erro se o índice não existir, e outro bloco separado se o elemento encontrado não for um número válido para operação matemática.</p>
+        </div>
+
+        <div class="card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>8. Lógica de Erro em Construtores de Classes</h2>
+            <p class="enunciado">Crie uma classe chamada <code>Produto</code> cujo construtor recebe <code>nome</code> e <code>preco</code>. Se o preço informado for menor ou igual a zero, o construtor deve disparar imediatamente um <code>ValueError</code> impedindo que o objeto chegue a ser instanciado.</p>
+        </div>
+
+        <div class="card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>9. Usando o Bloco Finally</h2>
+            <p class="enunciado">Crie a função <code>simular_banco_de_dados(comando)</code>. Ela deve tentar rodar um print com o comando. Caso ocorra qualquer erro genérico no processo, capture-o. Independentemente de dar erro ou funcionar com sucesso, use a estrutura adequada para exibir sempre no final a mensagem: <em>"Conexão encerrada."</em></p>
+        </div>
+
+        <div class="card facil">
+            <span class="badge facil">Fácil</span>
+            <h2>10. Exceção Customizada de Idade</h2>
+            <p class="enunciado">Crie uma classe de exceção chamada <code>IdadeInvalidaError</code>. Depois, crie a função <code>cadastrar_eleitor(idade)</code>. Se a idade for menor que 16, dispare o seu erro customizado.</p>
+        </div>
+
+        <div class="card medio">
+            <span class="badge medio">Médio</span>
+            <h2>11. O Som Polimórfico Protegido</h2>
+            <p class="enunciado">Crie uma classe mãe <code>Instrumento</code> com um método <code>tocar(self)</code> que dispara um <code>AnatomiaError</code> (uma exceção customizada que você deve criar) avisando que classes abstratas não tocam som. Crie uma classe filha <code>Guitarra</code> que sobrescreve o método retornando um som clássico. Teste chamar o método das duas classes usando tratamento de erro.</p>
+        </div>
+
+        <div class="card medio">
+            <span class="badge medio">Médio</span>
+            <h2>12. Buscando Chaves por Índice de Texto</h2>
+            <p class="enunciado">Crie a função <code>buscar_letra_na_lista(lista_de_strings, indice_lista, indice_palavra)</code>. Ela deve acessar a lista no primeiro índice e buscar a letra da palavra usando o segundo índice. Trate as duas falhas possíveis (índice da lista inexistente ou palavra curta demais para o índice da letra) usando um único bloco de captura genérico, mas exibindo a mensagem nativa do erro capturado na tela.</p>
+        </div>
+
+        <div class="card medio">
+            <span class="badge medio">Médio</span>
+            <h2>13. Cadastro de Alunos com Notas Seguras</h2>
+            <p class="enunciado">Crie a função <code>adicionar_nota_aluno(lista_notas, nova_nota)</code>. A função deve verificar através de condicionais se a nota está entre 0.0 e 10.0. Se não estiver, lança um <code>ValueError</code>. Se o tipo do dado passado não for float ou int, capture a exceção de tipo adequada e exiba um aviso de tipo incorreto.</p>
+        </div>
+
+        <div class="card medio">
+            <span class="badge medio">Médio</span>
+            <h2>14. Elevador e Limite de Carga</h2>
+            <p class="enunciado">Crie uma classe chamada <code>Elevador</code> que inicia com o atributo interno <code>peso_total = 0</code>. Crie o método <code>entrar_pessoa(self, peso_pessoa)</code>. Se a soma do peso ultrapassar 400, dispare uma exceção criada por você chamada <code>ElevadorSobrecargadoError</code> e não altere o peso atual do elevador.</p>
+        </div>
+
+        <div class="card medio">
+            <span class="badge medio">Médio</span>
+            <h2>15. Calculadora Científica Experimental</h2>
+            <p class="enunciado">Crie a função <code>calcular_raiz_quadrada(numero)</code>. Caso o número seja negativo, use condicionais para disparar uma exceção chamada <code>NumeroNegativoError</code>. Caso passem um caractere de texto, capture o erro de tipo clássico. Junte tudo sob uma estrutura <code>try/except</code> externa.</p>
+        </div>
+
+        <div class="card hard">
+            <span class="badge hard">Hard</span>
+            <h2>16. O Banco e a Exceção de Saldo Insuficiente</h2>
+            <p class="enunciado">Crie uma classe customizada chamada <code>SaldoInsuficienteError</code> que guarda internamente quanto saldo faltou para uma operação. Crie uma classe <code>ContaBancaria</code> com saldo inicial. O método <code>sacar(self, valor)</code> deve verificar se há dinheiro disponível. Se não houver, dispare o seu erro customizado calculando a diferença em dinheiro que faltou para o saque ser efetuado.</p>
+        </div>
+
+        <div class="card hard">
+            <span class="badge hard">Hard</span>
+            <h2>17. Validando Herança de Atributos Críticos</h2>
+            <p class="enunciado">Crie uma classe mãe chamada <code>Usuario</code> e as classes filhas <code>Admin</code> e <code>Comum</code>. Crie a função <code>deletar_banco_de_dados(usuario_objeto)</code>. A função deve testar se o objeto passado é da classe <code>Admin</code> usando funções de verificação de classe do Python. Se for um usuário <code>Comum</code>, force o disparo de uma exceção do tipo <code>PermissionError</code> com um texto explicativo de segurança.</p>
+        </div>
+
+        <div class="card hard">
+            <span class="badge hard">Hard</span>
+            <h2>18. Sistema de Login com Tentativas Limitadas</h2>
+            <p class="enunciado">Crie uma classe chamada <code>Autenticador</code> que possui os atributos internos <code>senha_correta = "1234"</code> e <code>tentativas = 0</code>. Crie o método <code>fazer_login(self, senha_digitada)</code>. A cada erro de senha, adicione 1 ao contador de tentativas e dispare um <code>ValueError</code>. Se o contador chegar a 3, qualquer tentativa nova de login deve disparar uma exceção customizada chamada <code>ContaBloqueadaError</code>.</p>
+        </div>
+
+        <div class="card desafio-especial">
+            <span class="badge desafio-especial">🔥 Desafio Lendário</span>
+            <h2>19. Simulador de Inventário de RPG com Polimorfismo Restrito</h2>
+            <p class="enunciado">Crie uma classe mãe <code>Item</code> e as classes filhas <code>Espada</code>, <code>Pocao</code> e <code>PedraComum</code>. Crie uma classe chamada <code>Inventario</code> que possui uma lista interna vazia. O método <code>guardar_item(self, objeto_item)</code> deve adicionar o item na lista. Porém, se o objeto recebido for uma instância da classe <code>PedraComum</code>, o método deve recusar o armazenamento disparando uma exceção customizada chamada <code>ItemInutilException</code>. Se o inventário já tiver mais de 3 itens de qualquer tipo, ele deve disparar um <code>InventarioCheioException</code>.</p>
+        </div>
+
+        <div class="card desafio-especial">
+            <span class="badge desafio-especial">🔥 Desafio Lendário</span>
+            <h2>20. Processador de Transações Financeiras em Lote</h2>
+            <p class="enunciado">Crie a função <code>processar_lote_saques(conta_objeto, lista_de_valores)</code>. Essa função recebe um objeto de conta bancária (da questão 16) e uma lista contendo diversos valores numéricos de saques misturados com algumas strings inválidas inseridas por erro humano de digitação. A função deve percorrer a lista inteira tentando efetuar os saques. Se encontrar uma string, deve capturar o erro, exibir um aviso e continuar o laço. Se disparar o erro de saldo insuficiente, deve interromper imediatamente o lote todo com um aviso crítico na tela e salvar uma lista com os saques que deixaram de ser executados por falta de fundos.</p>
+        </div>
+
+    </div>
+</body>
+</html>
