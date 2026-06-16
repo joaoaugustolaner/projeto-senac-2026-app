@@ -20,7 +20,7 @@ Esse projeto é para desenvolver e reforçar as habilidades de vocês com Python
 
 - As classes Ônibus, Van e Carro, devem ser herdadas de Veículo. E cada veículo deve ter como atributos, *uma placa (str), um peso (float), uma cor (str), o nome do condutor (str) e uma capacidade de passageiros (int)*, que devem ser 23, 12 e 5, respectivamente.
 
-- A classe Vaga, tem um atributo que é o veículo que ela guarda e também a capacidade (int), que é proporcional ao número de passageiros que ela tem, um horário de entrada, e o atributo disponível (bool).
+- A classe Vaga, tem um atributo que é o veículo que ela guarda e também a capacidade (int), que é proporcional ao número de passageiros que ela tem, um horário de entrada, e o atributo disponível (bool). A classe é instanciada somente com uma capacidade, que deve ser passada pelas classes filhas, assim como em Veículo.
 
 -A classe Estacionamento possui uma lista de Vagas como parâmetro.
 
@@ -32,33 +32,32 @@ Esse projeto é para desenvolver e reforçar as habilidades de vocês com Python
 
 **** Vaga:
 - ~alocar_carro(self, veiculo: Veiculo, horario: datetime.time)~, este método deve alocar um carro a vaga e registrar o horário de entrada
-- ~liberar_vaga(self)~, deve remover o veículo da vaga e registrar o horário de saída da vaga 
+- ~liberar_vaga(self)~, deve remover o veículo da vaga 
 
 
 **** Estacionamento:
-- A classe Estacionamento possui a principal lógica do programa. Um template da classe está disponível [[aqui][src/Estacionamento.py]].
+- A classe Estacionamento possui a principal lógica do programa. Um template da classe está disponível [[src/Estacionamento.py][aqui]].
 
 - ~def estacionar(self, veiculo:Veiculo) -> int~ 
 Esse método deve estacionar um veículo em uma vaga, para isso deve percorrer as vagas
 até encontrar a primeira que tenha capacidade para armazenar o veículo. O método deve fazer 
-uso do método ~alocar_carro~, presente em Vaga, para registrar a operação. Deve usar o horário atual como horário de entrada.
-Se não houver vagas, a função deve lançar um erro informando que o estacionamento está cheio. Mas se ainda houver vagas,
-deve retornar um erro que diga que não há vagas para esse veículo informado.
+uso do método ~alocar_carro~, presente em Vaga, para registrar a operação. Deve usar o horário atual como horário de entrada. Se não houver vagas, a função deve lançar um erro informando que o estacionamento está cheio. Mas se ainda houver vagas, deve retornar um erro que diga que não há vagas para esse veículo informado.
 
-- ~def adicionar_estacionamento(self, veiculo:Veiculo, numero_vaga:int, horario: datetime.time)~
-- ~def verificar_horario(self, numero_vaga:int)~
-- ~def checkout(self, vaga:)~
+- ~def adicionar_estacionamento(self, placa_Veiculo:str, horario: datetime.time) -> bool~
+Esse método deve, dado um horário e uma placa de um veículo, procurar esse veículo entre as vagas, e ajustar o horário em que o veículo estacionado, para isso, use o método ~ajustar_horario~ presente em Vaga. Caso a placa do veículo não seja encontrada a função deve retornar um erro informando que o veículo não está presente, o erro é uma exceção customizada chamada *CarroNaoEncontradoError*. A função deve retornar True caso tenha conseguido alterar o horário.
 
-*** Descrição:
+- ~def verificar_horario(self, placa:str) -> int~
+Esse método deve procurar o veículo estacionado na vaga, através da placa passada por parâmetro e calcular a diferença de tempo entre o tempo atual e o horário registrado na vaga. A função deve retornar um número que representa o número de minutos em que o veículo ocupou a vaga. Caso não haja um veículo com a placa informada, a função deve retornar um erro com a exceção *CarroNãoEncontradoError*. Use o horário 
 
-- O método ~estacionar~ tem múltiplas assinaturas e vincula um carro a uma vaga. Se o carro for muito grande para a vaga, crie um erro customizado que dispara quando tenta estacionar. Caso a vaga já esteja ocupada, lance outro erro customizado, indicando que a vaga já está ocupada. Caso nenhum horário seja fornecido, o horário atual deve ser informado, para isso use a biblioteca ~datetime~. Do contrário, instaure um objeto da classe datetime (procure a [[https://docs.python.org/3/library/datetime.html][documentação]]) e passe por parâmetro. Lembre-se de mudar a disponibilidade da vaga. É também necessário ver se o número da vaga passado por parâmetro está de acordo com o tamanho da lista, caso contrário levantar uma exceção de ~IndexError~.
+DICA: procure pela documentação da biblioteca `datetime` ([[https://docs.python.org/3/library/datetime.html][documentação]])
 
-- O método ~verificar_horario~ recebe o número da vaga como parâmetro, é necessário verificar se o número está dentro dos limites da lista, caso contrátio, deve-se levantar um erro do tipo ~IndexError~. O método deve pegar o horário em que a vaga foi preenchida e o calcular a diferença entre o horário atual e o horário do estacionamento. Para realizar, utilize a biblioteca ~timedelta~ presente dentro de ~datetime~. O método deve retornar, em minutos, o tempo total de estacionamento.
+- ~def checkout(self, placa:str)~
+Dada a placa de um veículo a função deve procurar pelo veículo informado. O método deve usar a função ~verificar_horario()~ para ver quantos minutos o veículo ficou no estacionamento. Dado o número de minutos, e baseado no tipo do veículo a função deve calcular quando é devido para o veículo em questão. O método também deve tornar a vaga disponível ao final do checkout, para isso, use o método ~liberar_vaga()~ presente em Vaga.
 
-- O método ~checkout~ recebe uma vaga para liberar e baseado nos minutos calculador pela função ~verificar_horario~ deve calcular qual o valor do estacionamento. É sabido que para *ônibus o preço é de R$ 0,10/minuto*; já para *Vans, o preço é de R$ 0,09/minuto* e para *carros o preço é de R$ 0,08 por minuto usado*. Se qualquer veículo passar de 10h estacionado, ele tem direito a um desconto de 10% no valor total do estacionamento, mas caso ele permanceça por menos de 2h, o valor de cada minuto é dobrado.
+É sabido que para *ônibus o preço é de R$ 0,10/minuto*; já para *Vans, o preço é de R$ 0,09/minuto* e para *carros o preço é de R$ 0,08 por minuto usado*. Se qualquer veículo passar de 10h estacionado, ele tem direito a um desconto de 10% no valor total do estacionamento, mas caso ele permanceça por menos de 2h, o valor de cada minuto é dobrado.
+
 
 
 *** O menu:
-
-Para essa aplicação ser interativa é necessário criar um menu interativo. Dê uma olhada no arquivo *main.py* para maiores inspirações
+Para essa aplicação ser interativa é necessário criar um menu interativo. Dê uma olhada no arquivo [[../desafios/main.py][*main.py*]] para maiores inspirações
 
