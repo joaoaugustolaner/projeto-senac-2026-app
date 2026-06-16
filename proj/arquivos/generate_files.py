@@ -84,9 +84,9 @@ files_to_create = {
 }
 
 # Create files
-os.makedirs('exercicios/arquivos/')
+os.makedirs('proj/arquivos/exercicios/arquivos/')
 for filename, content in files_to_create.items():
-    with open(filename, "w", encoding="utf-8") as f:
+    with open('proj/arquivos/exercicios/arquivos/' + filename, "w", encoding="utf-8") as f:
         f.write(content)
 
 

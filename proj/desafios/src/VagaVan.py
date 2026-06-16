@@ -2,4 +2,6 @@ from Vaga import Vaga
 
 class VagaVan(Vaga):
     
-    pass
+    def bla():
+        pass
+    
