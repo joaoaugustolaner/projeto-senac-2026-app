@@ -15,7 +15,7 @@ def read_root():
     return {"message": "Bem vindo!"}
 
 
-@app.post("/auth/", status_code=HTTPStatus.CREATED, response_model=UserPublic)
+@app.post("/users/", status_code=HTTPStatus.CREATED, response_model=UserPublic)
 def create_user(user: User):
     user_with_id = UserDB(**user.model_dump(), id=len(database) + 1)
 

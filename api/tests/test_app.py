@@ -14,7 +14,7 @@ def test_root_deve_retornar_ok_e_ola_mundo(client):
 def test_create_user(client):
 
     response = client.post(
-        "/auth/",
+        "/users/",
         json={
             "email": "alice@example.com",
             "password": "secret",
