@@ -41,3 +41,13 @@ def test_read_user(client):
             }
         ]
     }
+
+
+def test_delete_user(client):
+
+    # When
+    response = client.delete("/users/1")
+
+    # Then
+    response.status_code == HTTPStatus.OK
+    response.json() == {"message": "User deleted!"}
