@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let request_body;
 
         // Se o botão clicado foi o de registrar, muda o endpoint
-        if (botaoClicado === 'create_acc') {
+        if (clicked === 'create_acc') {
             url = 'http://127.0.0.1:8000/users'; // Ou a rota que definiu no FastAPI
             mensagemErroPadrao = 'Erro ao criar conta. Verifique os dados.';
             headers['Content-Type'] = 'application/json'
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'form.html';
 
         } catch (error) {
-            document.getElementById('error-message').textContent = error.message;
+            console.log(error)
         }
     });
 });
