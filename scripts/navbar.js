@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function(){
             
             if (token) {
                 link.setAttribute('href', './form.html');
+                link.setAttribute('text', 'Fofoca?!')
             }
         }
     })

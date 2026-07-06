@@ -9,34 +9,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const clicked = event.submitter.id;
 
-        // Define a URL base do seu FastAPI
-        let url = 'http://127.0.0.1:8000/auth/'; 
+        let url = 'http://localhost:8000/auth'; 
         let mensagemErroPadrao = 'Credenciais inválidas';
         let headers = {'Accept': 'application/json'}
         let request_body;
 
-        // Se o botão clicado foi o de registrar, muda o endpoint
         if (clicked === 'create_acc') {
-            url = 'http://127.0.0.1:8000/users'; // Ou a rota que definiu no FastAPI
+            url = 'http://localhost:8000/users'; 
             mensagemErroPadrao = 'Erro ao criar conta. Verifique os dados.';
             headers['Content-Type'] = 'application/json'
             request_body = JSON.stringify({email: email, password: password})
         } else {
-            headers['Content-Type'] = 'x-form-www-urlencoded'
             const params = new URLSearchParams();
             params.append('username', email);    
             params.append('password', password); 
-            request_body = params;
+            request_body = params
+
+            console.log(request_body)
         }
 
         // Executa a requisição dinamicamente
         try {
             const response = await fetch(url, {
                 method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
+                headers: headers,
                 body: request_body
             });
 
@@ -52,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // Redireciona o usuário
-            window.location.href = 'form.html';
+            window.location.href = './index.html';
 
         } catch (error) {
             console.log(error)
