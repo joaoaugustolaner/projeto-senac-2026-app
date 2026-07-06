@@ -4,21 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/auth.css">
     <title>Login</title>
+    <script src="scripts/auth.js" defer></script>
 </head>
 
 <body>
     <div class="container">
+        <header>
+            <nav>
+                <img src="./images/boat.png"
+                    alt="Uma imagem de um barco a vela, somente com traços em tons marrons. O barco está de com a proa virada para o lado direito" />
+                <div class="toggle"></div>
+                <a class="link-do-cabecalho" href="./index.html">Voltar</a>
+            </nav>
+        </header>
         <form id="auth">
             <label for="email"> Email: </label>
             <input id="email" type="email" name="email" placeholder="joao.silva@example.com">
 
             <label for="senha"> Password: </label>
             <input id="senha" type="password" name="senha" placeholder="Senha">
-            
-            <p id="error-message" style="color: red; font-size: 0.9em;"></p>
 
-            <button type="submit"> Fazer Login </button>
+            <button type="submit" id="login_acc"> Login </button>
+            <button type="submit" id="create_acc"> Criar conta </button>
         </form>
     </div>
 </body>

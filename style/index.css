@@ -71,6 +71,7 @@ main a {
     transition: all 0.2s ease;
     font-family: 'Georgia', serif;
     font-size: 20pt;
+    pointer-events: none;
 }
 
 main a:hover {
